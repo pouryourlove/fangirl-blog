@@ -5,7 +5,7 @@ export const assets = {
     logo,
     gradientBackground,
 }
-export const blogCategories = ['All']
+export const blogCategories = ['All', 'Zzong', 'Moodeng','TV shows','Movies', 'Music']
 
 // export const blog_data = [
 //     {
