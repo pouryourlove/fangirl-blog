@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import { assets } from "../assets/assets";
+import BlogLIst from "../components/BlogLIst";
 
 
 function Home() {
@@ -21,6 +22,7 @@ function Home() {
       <div className="relative z-10">
         <Navbar />
         <Header />
+        <BlogLIst />
       </div>
     </div>
   );
