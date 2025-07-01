@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { assets } from "../assets/assets";
 import BlogLIst from "../components/BlogLIst";
 import NewsLetter from "../components/NewsLetter";
+import Footer from "../components/Footer";
 
 
 function Home() {
@@ -25,6 +26,7 @@ function Home() {
         <Header />
         <BlogLIst />
         <NewsLetter />
+        <Footer/ >
       </div>
     </div>
   );
