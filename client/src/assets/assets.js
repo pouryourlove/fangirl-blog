@@ -10,11 +10,18 @@ import blog_pic_7 from './blog_pic_7.png';
 import blog_pic_8 from './blog_pic_8.png';
 import blog_pic_9 from './blog_pic_9.png';
 import blog_pic_10 from './blog_pic_10.png';
-
+import home_icon from './home_icon.png';
+import add_icon from './add_icon.svg'
+import list_icon from './list_icon.svg'
+import comment_icon from './comment_icon.svg'
 
 export const assets = {
     logo,
     gradientBackground,
+    home_icon,
+    add_icon,
+    list_icon,
+    comment_icon,
 }
 export const blogCategories = ['All', 'Zzong', 'Moodeng','TV shows','Movies', 'Music']
 
