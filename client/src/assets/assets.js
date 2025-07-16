@@ -14,6 +14,11 @@ import home_icon from './home_icon.png';
 import add_icon from './add_icon.svg'
 import list_icon from './list_icon.svg'
 import comment_icon from './comment_icon.svg'
+import dashboard_icon_1 from './dashboard_icon_1.svg'
+import dashboard_icon_2 from './dashboard_icon_2.svg'
+import dashboard_icon_3 from './dashboard_icon_3.svg'
+import dashboard_icon_4 from './dashboard_icon_4.svg'
+
 
 export const assets = {
     logo,
@@ -22,6 +27,10 @@ export const assets = {
     add_icon,
     list_icon,
     comment_icon,
+    dashboard_icon_1,
+    dashboard_icon_2,
+    dashboard_icon_3,
+    dashboard_icon_4
 }
 export const blogCategories = ['All', 'Zzong', 'Moodeng','TV shows','Movies', 'Music']
 
@@ -201,12 +210,12 @@ export const comments_data = [
         }
     ]
 
-// export const dashboard_data = {
-//     "blogs": 10,
-//     "comments": 5,
-//     "drafts": 0,
-//     "recentBlogs": blog_data.slice(0, 5),
-// }
+export const dashboard_data = {
+    "blogs": 10,
+    "comments": 5,
+    "drafts": 0,
+    "recentBlogs": blog_data.slice(0, 5),
+}
 
 // export const footer_data = [
 //       {
