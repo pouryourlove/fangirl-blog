@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog/:id" element={<Blog />} />
-        <Route path="/admin" element={false ?<Layout/ > : <Login/>}>
+        <Route path="/admin" element={true ?<Layout/ > : <Login/>}>
           <Route index element={<Dashboard />} />
           <Route path="listBlog" element={<ListBlog />} />
           <Route path="addBlog" element={<AddBlog />} />
