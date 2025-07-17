@@ -18,7 +18,7 @@ import dashboard_icon_1 from './dashboard_icon_1.svg'
 import dashboard_icon_2 from './dashboard_icon_2.svg'
 import dashboard_icon_3 from './dashboard_icon_3.svg'
 import dashboard_icon_4 from './dashboard_icon_4.svg'
-
+import cross_icon from './cross_icon.svg'
 
 export const assets = {
     logo,
@@ -30,7 +30,8 @@ export const assets = {
     dashboard_icon_1,
     dashboard_icon_2,
     dashboard_icon_3,
-    dashboard_icon_4
+    dashboard_icon_4,
+    cross_icon
 }
 export const blogCategories = ['All', 'Zzong', 'Moodeng','TV shows','Movies', 'Music']
 
