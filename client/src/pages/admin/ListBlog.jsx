@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { blog_data } from "../../assets/assets";
-import BlogTableItem from "./BlogTableItem";
+import BlogTableItem from "../../components/admin/BlogTableItem";
 
 function ListBlog() {
   const [blogs, setBlogs] = useState([]);
