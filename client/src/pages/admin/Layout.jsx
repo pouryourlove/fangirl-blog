@@ -2,10 +2,13 @@ import React from "react";
 import { assets } from "../../assets/assets";
 import { Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "../../components/admin/Sidebar";
+import { useAppContext } from "../../context/AppContext";
 
 function Layout() {
   const navigate = useNavigate();
+  const { clearToken } = useAppContext();
   const logout = () => {
+    clearToken();
     navigate("/");
   };
   return (
@@ -18,9 +21,7 @@ function Layout() {
           onClick={() => navigate("/")}
         />
         <button
-          onClick={() => {
-            logout;
-          }}
+          onClick={logout}
           className="text-sm px-8 py-2 bg-primary text-white rounded-full cursor-pointer"
         >
           Logout
