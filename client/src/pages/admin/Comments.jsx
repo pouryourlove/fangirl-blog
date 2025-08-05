@@ -56,7 +56,7 @@ function Comments() {
           <tbody>
             {comments.filter((comment) => {
               if(filter === "Approved") return comment.isApproved === true;
-              return comment.isApproved === false
+              return comment.isApproved !== true
             }).map((comment,index)=> <CommentTableItem key={comment._id} comment={comment} index={index+1} fetchComments={fetchComments}/>)}
           </tbody>
         </table>
