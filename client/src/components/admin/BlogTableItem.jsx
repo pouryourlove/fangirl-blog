@@ -1,6 +1,7 @@
 import React from 'react'
 import { assets } from '../../assets/assets';
 import { useAppContext } from '../../context/AppContext';
+import toast from 'react-hot-toast';
 
 function BlogTableItem({blog, fetchBlogs, index}) {
   
@@ -28,7 +29,7 @@ function BlogTableItem({blog, fetchBlogs, index}) {
 
     const togglePublish = async () => {
       try {
-        const {data} = await axios.post("/api/blog/toggle-public", {id:blog._id})
+        const {data} = await axios.post("/api/blog/toggle-publish", {id:blog._id})
         if(data.success){
           toast.success(data.message)
           await fetchBlogs()

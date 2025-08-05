@@ -3,6 +3,7 @@ import { dashboard_data } from '../../assets/assets'
 import { assets } from '../../assets/assets'
 import BlogTableItem from '../../components/admin/BlogTableItem'
 import { useAppContext } from '../../context/AppContext'
+import toast from 'react-hot-toast'
 
 function Dashboard() {
 
@@ -74,7 +75,7 @@ function Dashboard() {
             </thead>
             <tbody>
               {dashboardData.recentBlogs.map((blog,index) => {
-                return <BlogTableItem key={blog._id} blog={blog} fetchBlog={fetchDashboardData
+                return <BlogTableItem key={blog._id} blog={blog} fetchBlogs={fetchDashboardData
                 } index={index + 1}/>
               })}
             </tbody>
