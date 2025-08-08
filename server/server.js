@@ -11,7 +11,10 @@ await connectDB()
 
 // Middlewares
 
+// Enable Cross-Origin requests 
+// (required when frontend & backend are on different domains)
 app.use(cors())
+// Parse incoming JSON requests and make the data available in req.body
 app.use(express.json())
 
 //Routes
