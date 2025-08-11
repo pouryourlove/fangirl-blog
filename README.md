@@ -1,4 +1,4 @@
-# :pushpin: FANGIRL BLOG
+<img width="528" height="754" alt="image" src="https://github.com/user-attachments/assets/c95c130c-c499-41c7-b49f-9bbd4140aafc" /># :pushpin: FANGIRL BLOG
 > 좋아하는 것들을 카테고리별로 정리해 꾸준히 기록하는 팬심 기록 공간
 ><https://>
 
@@ -162,20 +162,37 @@ await axios.post("/api/blog/toggle-publish", { id: blog._id });
 
 ### 4. 문제 해결
 
-🔍 HTML 이스케이프로 설명이 텍스트로만 렌더링 → 신뢰 가능한 정적 데이터에 한해 dangerouslySetInnerHTML 적용.
+🔍 HTML 이스케이프로 설명이 텍스트로만 렌더링 → 신뢰 가능한 정적 데이터에 한해 dangerouslySetInnerHTML 적용 -> 이후 카드 미리보기에서 HTML을 slice로 자르며 태그가 깨지는 문제가 발생해, 미리보기는 HTML→텍스트 변환 뒤 요약으로 개선. 본문은 리치텍스트 유지, 미리보기는 안전한 텍스트로 분리해 UX와 안정성을 동시에 확보.
 <details>
 <summary>코드 보기</summary>
   
-전
+전 1
 ```jsx
   <p className="mb-3 text-xs text-gray-600">{description.slice(0, 80)}</p>
 ```
-후
+전 2
 ```jsx
   <p
     className="mb-3 text-xs text-gray-600"
     dangerouslySetInnerHTML={{ __html: description.slice(0, 80) }}
     />
+```
+후
+```jsx
+    const htmlToText = (html) => {
+    const div = document.createElement("div");
+    div.innerHTML = html || "";
+    return div.textContent || div.innerText || "";
+  }
+
+  const preview = htmlToText(description);
+  const short = preview.length >80 ? preview.slice(0, 80) +"..." : preview;
+
+.
+.
+.
+
+  <p className="mb-3 text-xs text-gray-600">{short}</p>
 ```
   
 </div>
