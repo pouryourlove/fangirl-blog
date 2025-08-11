@@ -9,7 +9,7 @@ function Layout() {
   const { axios, setToken, navigate } = useAppContext();
   const logout = () => {
     localStorage.removeItem("token");
-    axios.defaults.headers.common["uthorization"] = null;
+    delete axios.defaults.headers.common["Authorization"];
     setToken(null);
     navigate("/");
   };
