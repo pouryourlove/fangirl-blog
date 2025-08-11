@@ -197,6 +197,26 @@ await axios.post("/api/blog/toggle-publish", { id: blog._id });
   
 </div>
 </details>
+
+🔍 로그아웃 시 Axios 인증 헤더를 null로 설정했으나, 헤더 키가 남아 보안 취약점 발생 가능 확인(서버에 "Authorization: null" 보낼 수 있음) → delete 키워드로 헤더 키 자체를 완전히 제거하도록 수정 → 인증 토큰 완전 삭제로 보안 강화 및 불필요한 API 호출 차단 → 로그아웃 처리 모범 사례 적용
+
+<details>
+<summary>코드 보기</summary>
+  
+전
+```jsx
+    axios.defaults.headers.common["Authorization"] = null;
+```
+후
+```jsx
+    delete axios.defaults.headers.common["Authorization"];
+```
+  
+</div>
+</details>
+
+
+
   
 🔍 관리자 레이아웃 사라짐 → 사이드바 링크와 라우트 경로 일치(camelCase)로 복구, <Outlet> 중첩 유지.
 <details>
