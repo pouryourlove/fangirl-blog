@@ -1,4 +1,4 @@
-<img width="528" height="754" alt="image" src="https://github.com/user-attachments/assets/c95c130c-c499-41c7-b49f-9bbd4140aafc" /># :pushpin: FANGIRL BLOG
+# :pushpin: FANGIRL BLOG
 > 좋아하는 것들을 카테고리별로 정리해 꾸준히 기록하는 팬심 기록 공간
 ><https://>
 
