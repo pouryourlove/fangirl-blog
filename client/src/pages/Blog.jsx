@@ -29,7 +29,7 @@ function Blog() {
       const {data} = await axios.get(`/api/blog/${id}`)
       data.success ? setData(data.blog) : toast.error(data.message)
     } catch (error) {
-      toast.error(data.message)
+      toast.error(error.message)
     }
   };
 
@@ -43,7 +43,7 @@ function Blog() {
         toast.error(data.message)
       }
     } catch (error) {
-      toast.error(data.message)
+      toast.error(error.message)
     }
   };
 
