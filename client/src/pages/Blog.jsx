@@ -138,7 +138,7 @@ function Blog() {
             ></textarea>
 
             <button
-              type="sumbit"
+              type="submit"
               className="bg-primary text-white rounded p-2 px-8 hover:scale-102 transition-all cursor-pointer"
             >
               Submit
