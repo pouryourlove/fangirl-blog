@@ -19,7 +19,7 @@ export const AppProvider = ({ children }) => {
       const { data } = await axios.get("/api/blog/all");
       data.success ? setBlogs(data.blogs) : toast.error(data.message);
     } catch (error) {
-      toast.error(data.message);
+      toast.error(error.message);
     }
   };
 
