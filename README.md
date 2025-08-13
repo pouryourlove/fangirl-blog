@@ -1,6 +1,6 @@
 # :pushpin: FANGIRL BLOG
 > 좋아하는 것들을 카테고리별로 정리해 꾸준히 기록하는 팬심 기록 공간
-><https://>
+><https://fangirl-blog-server.vercel.app>
 
 </br>
 
@@ -159,6 +159,70 @@ await axios.post("/api/blog/toggle-publish", { id: blog._id });
 </div>
 </details>
 </br>
+
+### 3.8. AI 블로그 초안 생성(Gemini)
+<details>
+<summary>코드 보기</summary>
+<div markdown="1">
+
+```
+// 서버: 상태 토글
+// server/routes/blogRoutes.js
+blogRouter.post("/generate", auth, generateContent);
+
+// server/controllers/blogController.js
+import main from "../configs/gemini.js";
+export const generateContent = async (req, res) => {
+  try {
+    const { prompt } = req.body;
+    const content = await main(
+      prompt + " Generate a blog content for this topic in simple text format"
+    );
+    res.json({ success: true, content });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
+
+// server/configs/gemini.js
+import { GoogleGenAI } from "@google/genai";
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+export default async function main(prompt) {
+  const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents: prompt,
+  });
+  return response.text;
+}
+
+// 클라이언트
+// client/src/pages/admin/AddBlog.jsx
+import { parse } from "marked";
+
+const generateContent = async () => {
+  if (!title) return toast.error("Please enter a title");
+  try {
+    setLoading(true);
+    const { data } = await axios.post("/api/blog/generate", { prompt: title });
+    if (data.success) {
+      quillRef.current.root.innerHTML = parse(data.content); // Markdown → HTML
+    } else {
+      toast.error(data.message);
+    }
+  } catch (error) {
+    toast.error(error.response?.data?.message || error.message);
+  } finally {
+    setLoading(false);
+  }
+};
+```
+</div>
+</details>
+</br>
+
+- 제목 입력 후 “Generate with AI” 클릭 시 Gemini가 초안을 생성해 Quill 에디터에 자동 삽입
+관리자 전용(토큰 필요), 서버사이드 호출로 API 키 보안 유지
+응답은 Markdown → HTML 변환 후 에디터에 주입, 로딩 스피너/에러 토스트로 UX 보완
 
 ### 4. 문제 해결
 
@@ -342,6 +406,7 @@ await axios.post("/api/blog/toggle-publish", { id: blog._id });
 </br>
 
 🔍 Postman 이미지 업로드 실패 -> 워킹 디렉토리와 폴더 이름 정정 후 해결
+</br>
 🔍 GitHub 잔디 미반영 -> 커밋 이메일 교정 후 히스토리 재작성
 
 ## 5. 성능 최적화
