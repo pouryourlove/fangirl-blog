@@ -1,6 +1,6 @@
 # :pushpin: FANGIRL BLOG
 > 좋아하는 것들을 카테고리별로 정리해 꾸준히 기록하는 팬심 기록 공간
-><https://fangirl-blog-server.vercel.app>
+><https://fangirl-blog.vercel.app/>
 
 </br>
 
@@ -57,7 +57,7 @@
 ## 3. 주요 기능
 
 ### 3.1. 홈 검색과 카테고리 탐색
-<img src="">
+<img src="https://github.com/user-attachments/assets/8a3a7e01-bdd8-479a-80f9-1e1d15aa6fd1">
 <details>
 <summary>코드 보기</summary>
 <div markdown="1">
@@ -79,7 +79,7 @@ const filteredBlogs = () => {
 - 제목/카테고리 부분 일치로 즉시 필터링, 모션 애니메이션으로 전환감 제공.
 
 ### 3.2. 카드 → 상세 페이지 전환
-<img src="">
+<img src="https://github.com/user-attachments/assets/d456cc00-629d-49f9-9493-5bed197f1db2">
 
 <details>
 <summary>코드 보기</summary>
@@ -98,12 +98,14 @@ const filteredBlogs = () => {
 - 발행일/제목/부제/카테고리/본문(리치텍스트) 제공.
 
 ### 3.3. 댓글 작성 및 승인 기반 노출
-<img src="">
+<img src="https://github.com/user-attachments/assets/65ad453f-99f1-41e3-b4d2-5cc4e14660c1">
+<img src="https://github.com/user-attachments/assets/8c4e2581-c7ac-4624-9413-72d3f9764b09">
+
 
 - 비로그인 댓글 작성 → 관리자 승인 후 상세 페이지에 노출.
 
 ### 3.4. 관리자 로그인과 라우팅 가드
-<img src="">
+<img src="https://github.com/user-attachments/assets/02d156cb-0d60-4694-bf40-f4d33927873f">
 <details>
 <summary>코드 보기</summary>
 <div markdown="1">
@@ -120,12 +122,12 @@ axios.defaults.headers.common["Authorization"] = data.token;
 - 토큰 기반 보호 라우트로 /admin 이하 접근 제어.
 
 ### 3.5. 관리자 대시보드(지표/최근 글)
-<img src="">
+<img src="https://github.com/user-attachments/assets/a3e5fb01-b6ca-4e12-b165-efc0e61c836a">
 
 - 총 게시글/댓글/드래프트 카운트와 최근 글 테이블 제공.
 
 ### 3.6. 글 작성/발행 (이미지 최적화)
-<img src="">
+<img src="https://github.com/user-attachments/assets/f2727851-89ee-41ff-81af-4704a46e47a9">
 <details>
 <summary>코드 보기(서버 업로드 최적화)</summary>
 <div markdown="1">
@@ -143,7 +145,7 @@ const optimizedImageUrl = imagekit.url({
 - Quill 에디터로 본문 작성, 썸네일 업로드, 드래프트/즉시 발행 관리.
 
 ### 3.7. 게시글 운영(발행 토글/삭제)
-<img src="">
+<img src="https://github.com/user-attachments/assets/47d9d0a1-2d8c-4c5e-a475-428dbf4abad1">
 <details>
 <summary>코드 보기</summary>
 <div markdown="1">
@@ -161,6 +163,7 @@ await axios.post("/api/blog/toggle-publish", { id: blog._id });
 </br>
 
 ### 3.8. AI 블로그 초안 생성(Gemini)
+<img src="https://github.com/user-attachments/assets/7fd1166a-1d2d-44a3-b447-21c33b6584ed">
 <details>
 <summary>코드 보기</summary>
 <div markdown="1">
